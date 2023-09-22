@@ -1,0 +1,5 @@
+D:\OneDrive - Universidad Peruana de Ciencias\2023_02\CC215-SC23 (Algo)\TP\TrabajoParcialNuevo\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.AssemblyReference.cache
+D:\TrabajoParcialNuevo\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.AssemblyReference.cache
+D:\TrabajoParcialNuevo\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.SuggestedBindingRedirects.cache
+D:\Jorge\tp\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.AssemblyReference.cache
+D:\Jorge\tp\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.SuggestedBindingRedirects.cache
