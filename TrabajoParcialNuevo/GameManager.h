@@ -5,20 +5,21 @@
 #include "FlyerBase.h"
 #include "Flyer.h"
 #include "Ally.h"
+#include "Vitamin.h"
 #include "Artifact.h"
-#include "Vitamin.h" 
-
 class GameManager
 {
 private:
 	vector<Hero*> hero;
 	vector<Block*> blocks;
-	vector<Ally*> allies; 
+	vector<Ally*> allies;
 	vector< EnemyOne*> enemyOne;
 	vector<FlyerBase*> flyerBase;
 	vector<Flyer*> flyers;
-	vector<Artifact*> artifacts1;
 	vector<Vitamin*> vitamins;
+	vector<Artifact*> artifacts;
+	Artifact* screenArtifact;
+
 	int cantHero = 0;
 	int cantAlly;
 	//int cantEnem2;
@@ -28,9 +29,13 @@ private:
 	int cantBlock;
 	int cantEnemy1;
 	int cantFlyers;
-	int cantArt;
+	int cantVitamin;
+	int cantArtif;
 	int cantTotalPieces;
+	int pieceType;
 	int posyBlock, posxBlock;
+
+
 
 	time_t timeNow;
 	struct tm timeNowLocal;
@@ -38,9 +43,10 @@ private:
 	int timeCountSec;
 	int totalTime;
 
-	bool repeat = true;
 	bool repeatEnemy;
 	bool repeatAlly;
+	bool drawVitamin;
+	bool repeatArtif;
 
 public:
 	GameManager();
@@ -56,6 +62,13 @@ public:
 		Console::SetCursorPosition(x, y);
 	}
 
+	void textoLento(char* texto) {
+		while (*texto) {
+			cout << *texto++;
+			_sleep(15);
+		}
+	}
+
 	void definir_consola_inicio();
 	void definir_consola_juego();
 
@@ -67,18 +80,19 @@ public:
 	void screenYouPass();
 	void screenLateral();
 
+	void screenProyectOne();
+	void screenProyectTwo();
+	void screenProyectThree();
+
 	void eraseEntity();
 	void eraserAll();
 	void positionAll();
 	void drawAll();
-	void drawArtifact();
 	void drawBlocks();
 	bool collision(Entity* obj1, Entity* obj2);
 	bool collisionWithBlock(Entity* obj1, Entity* obj2, char dir);
 
 	void playLevel();
-	//void nivelDos();
-	//void nivelTres();
 	void funcionamientoJuego();
 };
 

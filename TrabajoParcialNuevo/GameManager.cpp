@@ -13,6 +13,9 @@ GameManager::GameManager() {
 	cantFlyers = 5;
 	posyBlock = HEIGHT_GAME / 2;
 	posxBlock = WITDH_GAME_LATERAL / 4;
+	//pieceType = 0;
+	cantTotalPieces = 0;
+	screenArtifact = new Artifact();
 }
 GameManager::~GameManager() {}
 
@@ -94,22 +97,42 @@ void GameManager::screenLoser()
 void GameManager::screenWiner()
 {
 
+
+
+	colorGame(226, 196, 24); cursorGame(45, 1); cout << "                 %+                 ";
+	colorGame(226, 196, 24); cursorGame(45, 2); cout << "                ::::                ";
+	colorGame(226, 196, 24); cursorGame(45, 3); cout << "              :::= #:%              ";
+	colorGame(226, 196, 24); cursorGame(45, 4); cout << "          -* ::::==#:#*:..%       ##";
+	colorGame(226, 196, 24); cursorGame(45, 5); cout << "#%       *::-%:::+==:=.   +#    #-: ";
+	colorGame(226, 196, 24); cursorGame(45, 6); cout << " -+-     =#::::::+#:::  *:     %::+ ";
+	colorGame(226, 196, 24); cursorGame(45, 7); cout << "  %:::=#     #::::::: -    .- :::   ";
+	colorGame(226, 196, 24); cursorGame(45, 8); cout << "  -:::=#     *::::=:: %     # ::%   ";
+	colorGame(226, 196, 24); cursorGame(45, 9); cout << "   *:::=%   :*::::::   #    *::#    ";
+	colorGame(226, 196, 24); cursorGame(45, 10); cout << "   .:::"; colorGame(159, 93, 22); cout << "==#"; colorGame(226, 196, 24); cout << " % %= ::::::: % : +*::.    ";
+	colorGame(226, 196, 24); cursorGame(45, 11); cout << "    #:::"; colorGame(159, 93, 22); cout << "===#"; colorGame(226, 196, 24); cout << "#%%%%%%%%** ::  ::#     ";
+	colorGame(226, 196, 24); cursorGame(45, 12); cout << "    #:::%+"; colorGame(159, 93, 22); cout << "========="; colorGame(226, 196, 24); cout << "   + % *:: + ";
+	colorGame(226, 196, 24); cursorGame(45, 13); cout << "    -=*====*"; colorGame(152, 114, 0); cout << "%%%%#%%%%#"; colorGame(226, 196, 24); cout << "=.=-  #+-     ";
+	colorGame(152, 114, 0); cursorGame(45, 14); cout << "      %%%%%%%%%%%%%%%%%%%%%%#       ";
+	colorGame(152, 114, 0); cursorGame(45, 15); cout << "       .%%%%%%%%%%%%%%%%%-          ";
+
+
+
 	colorGame(177, 83, 235);
 
-	cursorGame(10, 1); cout << "                                                                                ,----,           ";
-	cursorGame(10, 2); cout << "                                      ,--.                                    ,/###.`| 		  ";
-	cursorGame(10, 3); cout << "  ,----..       ,---,               ,--.'|    ,---,          .--.--.        ,`###.'  :     ,---,.";
-	cursorGame(10, 4); cout << " /ggg/   \\     '##.' \\          ,--,:##: |   '##.' \\        /##/    '.    ;####;     /   ,'##.' |";
-	cursorGame(10, 5); cout << "|ggg:     :   /##;    '.     ,`--.'`|##' :  /##;    '.     |##:  /`. /  .'___,/    ,'  ,---.'   |";
-	cursorGame(10, 6); cout << ".ggg|  ;. /  :##:       \\    |###:  :##| | :##:       \\    ;##|  |--`   |####:     |   |###|   .'";
-	cursorGame(10, 7); cout << ".ggg; /--`   :##|   /\\   \\   :###|   \\#| : :##|   /\\   \\   |##:  ;_     ;####|.';  ;   :###:  |-,";
-	cursorGame(10, 8); cout << ";ggg| ;  __  |##:  ' ;.   :  |###: '  '; | |##:  ' ;.   :   \\##\\    `.  `----'##|  |   :###|  ;/|";
-	cursorGame(10, 9); cout << "|ggg: |.' .' |##|  ;/  \\   \\ '###' ;.    ; |##|  ;/  \\   \\   `----.   \\     '###:  ;   |###:   .'";
-	cursorGame(10, 10); cout << ".ggg| '_.' : '##:  | \\  \\ ,' |###| | \\   | '##:  | \\  \\ ,'   __ \\##\\  |     |###|  '   |###|  |-,";
-	cursorGame(10, 11); cout << "'ggg; : \\  | |##|  '  '--'   '###: |  ; .' |##|  '  '--'    /##/`--'  /     '###:  |   '###:  ;/|";
-	cursorGame(10, 12); cout << "|ggg:    /   |##| ,'         '###: |       |##| ,'           `--'---'       '---'      |###:   .'";
-	cursorGame(10, 13); cout << " \\ggg\\ .'    `--''           ;###|.'       `--''                                       |###| ,'  ";
-	cursorGame(10, 14); cout << "  `---`                      '---'                                                     `----'	  ";
+	cursorGame(14, 16); cout << "                                                                                ,----,           ";
+	cursorGame(14, 17); cout << "                                      ,--.                                    ,/###.`| 		  ";
+	cursorGame(14, 18); cout << "  ,----..       ,---,               ,--.'|    ,---,          .--.--.        ,`###.'  :     ,---,.";
+	cursorGame(14, 19); cout << " /ggg/   \\     '##.' \\          ,--,:##: |   '##.' \\        /##/    '.    ;####;     /   ,'##.' |";
+	cursorGame(14, 20); cout << "|ggg:     :   /##;    '.     ,`--.'`|##' :  /##;    '.     |##:  /`. /  .'___,/    ,'  ,---.'   |";
+	cursorGame(14, 21); cout << ".ggg|  ;. /  :##:       \\    |###:  :##| | :##:       \\    ;##|  |--`   |####:     |   |###|   .'";
+	cursorGame(14, 22); cout << ".ggg; /--`   :##|   /\\   \\   :###|   \\#| : :##|   /\\   \\   |##:  ;_     ;####|.';  ;   :###:  |-,";
+	cursorGame(14, 23); cout << ";ggg| ;  __  |##:  ' ;.   :  |###: '  '; | |##:  ' ;.   :   \\##\\    `.  `----'##|  |   :###|  ;/|";
+	cursorGame(14, 24); cout << "|ggg: |.' .' |##|  ;/  \\   \\ '###' ;.    ; |##|  ;/  \\   \\   `----.   \\     '###:  ;   |###:   .'";
+	cursorGame(14, 25); cout << ".ggg| '_.' : '##:  | \\  \\ ,' |###| | \\   | '##:  | \\  \\ ,'   __ \\##\\  |     |###|  '   |###|  |-,";
+	cursorGame(14, 26); cout << "'ggg; : \\  | |##|  '  '--'   '###: |  ; .' |##|  '  '--'    /##/`--'  /     '###:  |   '###:  ;/|";
+	cursorGame(14, 27); cout << "|ggg:    /   |##| ,'         '###: |       |##| ,'           `--'---'       '---'      |###:   .'";
+	cursorGame(14, 28); cout << " \\ggg\\ .'    `--''           ;###|.'       `--''                                       |###| ,'  ";
+	cursorGame(14, 29); cout << "  `---`                      '---'                                                     `----'	  ";
 
 
 }
@@ -117,19 +140,21 @@ void GameManager::screenWiner()
 void GameManager::screenYouPass()
 {
 	//cursorGame(1, 1); cout << "PASASTE NIVEL";
+	colorGame(37, 158, 193);
 
-                       
-    cursorGame(WITDH_GAME / 2 - 7, 1); cout << "       ::      ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 2); cout << "       +*:     ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 3); cout << "      =##:     ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 4); cout << "     -##*.     ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 5); cout << "     +##*====- ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 6); cout << "    .*######## ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 7); cout << "    =########+ ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 8); cout << "##*+########## ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 9); cout << "##**#########* ";                              
-    cursorGame(WITDH_GAME / 2 - 7, 10); cout << "###*#########. ";                                                       
-    cursorGame(WITDH_GAME / 2 - 7, 11); cout << "###+########*. ";                                                       
+	cursorGame(WITDH_GAME / 2 - 7, 1); cout << "       ::      ";
+	cursorGame(WITDH_GAME / 2 - 7, 2); cout << "       +*:     ";
+	cursorGame(WITDH_GAME / 2 - 7, 3); cout << "      =##:     ";
+	cursorGame(WITDH_GAME / 2 - 7, 4); cout << "     -##*.     ";
+	cursorGame(WITDH_GAME / 2 - 7, 5); cout << "     +##*====- ";
+	cursorGame(WITDH_GAME / 2 - 7, 6); cout << "    .*######## ";
+	cursorGame(WITDH_GAME / 2 - 7, 7); cout << "    =########+ ";
+	cursorGame(WITDH_GAME / 2 - 7, 8); cout << "##*+########## ";
+	cursorGame(WITDH_GAME / 2 - 7, 9); cout << "##**#########* ";
+	cursorGame(WITDH_GAME / 2 - 7, 10); cout << "###*#########. ";
+	cursorGame(WITDH_GAME / 2 - 7, 11); cout << "###+########*. ";
+
+	colorGame(67, 213, 49);
 
 	cursorGame(24, 13); cout << " /$$     /$$ /$$$$$$  /$$   /$$       /$$$$$$$   /$$$$$$   /$$$$$$   /$$$$$$ ";
 	cursorGame(24, 14); cout << "|  $$   /$$//$$__  $$| $$  | $$      | $$__  $$ /$$__  $$ /$$__  $$ /$$__  $$";
@@ -140,6 +165,8 @@ void GameManager::screenYouPass()
 	cursorGame(24, 19); cout << "    | $$   |  $$$$$$/|  $$$$$$/      | $$      | $$  | $$|  $$$$$$/|  $$$$$$/ ";
 	cursorGame(24, 20); cout << "    |__/    \\______/  \\______/       |__/      |__/  |__/ \\______/  \\______/  ";
 
+
+	colorGame(246, 29, 15);
 	cursorGame(5, 22); cout << " -%#: .%%=  +%*   *%*  -%%.  +%=  -%%:  +%+  :%#:  -%#:  #%+  =%#.  *%+  -%%: .#%-  -%%: .#%+  -%#.  *%*  -%%: .*%=     ";
 	cursorGame(5, 23); cout << "  %%%#:+%%%=:%%%* -%%%*.#%%%.+%%%+.*%%%-=%%%+:%%%#::%%%#-+%%%+:%%%#.+%%%+.#%%%:=%%%-:#%%%-=%%%+.%%%#.=%%%*.#%%%:=%%%=   ";
 	cursorGame(5, 24); cout << "   :%%%#-+%%%+:%%%* -%%%*.#%%%:+%%%+.*%%%--%%%+:%%%#::#%%#-=%%%+.%%%#.=%%%*.#%%%:=%%%=.#%%%-=%%%+.%%%#.=%%%*.*%%%:=%%%+ ";
@@ -147,12 +174,12 @@ void GameManager::screenYouPass()
 	cursorGame(5, 26); cout << "    *%%%:+%%%+:#%%%:-%%%*.#%%%--%%%# *%%%--%%%#:*%%%-.*%%%-=%%%+:#%%%::%%%* #%%%:+%%%*.*%%%:=%%%+:#%%%-:%%%*.#%%%-=%%%#.";
 	cursorGame(5, 27); cout << "  %%%%.-%%%+ %%%%: %%%#.#%%%=-%%%# *%%%--%%%# *%%%- *%%%::%%%+ %%%%: %%%# %%%%.=%%%* *%%%::%%%* #%%%- %%%# %%%%-=%%%*   ";
 	cursorGame(5, 28); cout << " +%%: :%%+  +%%:  *%*  -%%- .%%#  :%%- .%%#. =%%:  =%%: .#%=  =%#: .*%*  -%%: .%%*  -%%: .#%+  =%%:  *%*  -%%: .%%*     ";
-                                                                                                                        
 
-	}
+
+}
 
 void GameManager::screenLateral() {
-	
+
 	colorGame(248, 221, 26);
 	if (nivel == 1)
 	{
@@ -224,13 +251,15 @@ void GameManager::screenLateral() {
 	cout << "Manifestantes: " << enemyOne.size();
 
 	cursorGame(WITDH_GAME_LATERAL + 1, 17);
-	cout << "Compa" << char(164) << "ero: " << 4; //numero de aliados
+	cout << "Compa" << char(164) << "ero: " << allies.size(); //numero de aliados
 
 	cursorGame(WITDH_GAME_LATERAL + 1, 19);
+	if (vitamins.size() > 0)colorGame(15, 78, 246);
 	cout << "Agua o comida: ";
-	if (true) cout << "No aparecio"; //artefactos().size <= 0 
-	else cout << "Aparecio";
+	if (vitamins.size() <= 0) cout << "No aparecio"; //artefactos().size <= 0 
+	else cout << "Aparecio   ";
 
+	colorGame(254, 254, 254);
 	if (hero[cantHero]->getCargado()) colorGame(73, 237, 21);
 	cursorGame(WITDH_GAME_LATERAL + 1, 21);
 	cout << "Cantidad de folletos: "; //numero de piezas recolectadas
@@ -239,43 +268,197 @@ void GameManager::screenLateral() {
 
 	colorGame(254, 254, 254);
 	cursorGame(WITDH_GAME_LATERAL + 1, 23);
-	cout << "Piezas recolectadas: " << 4; //numero de piezas recolectadas
-	//dibujo de las piezas
+	cout << "Piezas recolectadas: " << cantTotalPieces; //numero de piezas recolectadas
+
+	if (cantTotalPieces > 0)
+	{
+		screenArtifact->setType(pieceType);
+
+		switch (nivel)
+		{
+		case 1:
+			screenArtifact->setX(WITDH_GAME_LATERAL + ((pieceType * 5) - 1 + 3 * (pieceType - 1)));
+			break;
+		case 2:
+			screenArtifact->setX(WITDH_GAME_LATERAL + (((pieceType - 3) * 4) - 1 + 3 * (pieceType - 4)));
+			break;
+		case 3:
+			screenArtifact->setX(WITDH_GAME_LATERAL + (((pieceType - 7) * 2) - 1 + 3 * (pieceType - 8)));
+			break;
+		}
+		screenArtifact->setY(25);
+		screenArtifact->draw();
+
+	}
 }
 
+void GameManager::screenProyectOne() {
+	//"; colorGame(225, 0, 0); cout << "
+	char* titulo = "Peru: Parque eolico Wayra I y proyecto Wayra Extension";
+	char* descripcion = "\t\t     Fortalecemos nuestra presencia en el sector de las energias renovables en Peru y  \n\t\t    ayudamos a diversificar la matriz energetica del pais, a fortalecer la confiabilidad\n\t\t            del sistema y a reducir las emisiones de gases de efecto invernadero.       ";
+
+	colorGame(225, 0, 0); cursorGame(WITDH_GAME / 2 - 3, 1); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(225, 0, 0); cout << char(219) << char(219);
+	colorGame(225, 0, 0); cursorGame(WITDH_GAME / 2 - 3, 2); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(225, 0, 0); cout << char(219) << char(219);
+
+	colorGame(243, 243, 243);
+	cursorGame(WITDH_GAME / 2 - 27, 4); textoLento(titulo);
+	cursorGame(1, 6); textoLento(descripcion);
+
+	cursorGame(0, 10);
+	colorGame(156, 228, 247);
+	cout << "================------------=--====-----=%@@+======+++============++++++****#*##%@%########%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" << endl;
+	cout << "============------------------=--=====----:-%@@+=====++++++==+++*@@@%#++++++*******%@@%#############%##%%%%%%%%%%%%@@%%%%%%%%%%%%%" << endl;
+	cout << "=============---------------------====----::-%@@*+##++++++###%@@%##+==++++++++******%@@%####################%%%%@@%%%%%%%%%%%%%%%%" << endl;
+	cout << "===========-------------------------==-----::-+@@%@@++#%%%@@@@**+======+++++++++*****%@@%################%@@@@@%%#%%%%%%%%%%%%%%%%" << endl;
+	cout << "----=-======-----:::------------------------::--@@@@@@@@@@@*+===========++++++++++****%@@@############@@@@@@############%%%%%%%%%%" << endl;
+	cout << "----------------:--::::--:--:::---------==------=@@@@@@@#+===============+++++++++++***#@@@#@@#####@@@@@@%###############%%%%%%%%%" << endl;
+	cout << "------------------::::::::::::---------====-----=@@++++++++=================+++++++++****%@@@@%%@@@@@%%#####################%%%%%%" << endl;
+	cout << "--------------------::::::::::--------=======---=@@+=+++++====================+++++++++***#@@@@@@@%%%########################%%%%#" << endl;
+	cout << "----------------------:::::::::--------====-==-+@@@+==========================+++++++++++**@@%****################################" << endl;
+	cout << "::::::::::::::::::::::::::::::::::::::::::----*@==*@+==========##+===============---=====*@++@#++++***************################" << endl;
+	cout << "...........:::::::::::::::::::::::::::::::::::#:..@@@::::------====####=*@%%###+=--------@#==+@#===*@*+*++*#%#%%#********#########" << endl;
+	cout << "....................:::::::::::::::::::::::::#::.:@@:.:::::---------===+@+-----++-------@+==+@#====*@%@%%%@%#%***********#########" << endl;
+	cout << ".......................:.::::::::::::::::::::+:::-@@:.....::::-------=-+@+--:---++------%===+@#====++@%******#%*********##########" << endl;
+	cout << "...............................:::::::::::::+::::-@@:.......:::::::::-:@@+-::::--#=-----%-===@%+===++@%++*****#%********##########" << endl;
+	cout << "................................::::::::::::@::::-@@:...........:::--:=@@=:::::::-#+---++--==@%=++==*@%++******#%#******##########" << endl;
+	cout << ".........................................:.+::::.-@@:...........:::---%%#=::::-:::-#*=-@--==+@@+++==@%%++*******#@#***#####%##%###" << endl;
+	cout << "...........................................:.....-@@:...........::----@#*=::::-:::--*##@-+%%%@@+====@*%+*********#@@@##%@@########" << endl;
+	cout << ".................................................-@@:..........::::-:-@#*=::::-::----*@@@@*=+@@+===+@*%***********#@@@@@########**" << endl;
+	cout << ".................................................-@@:.........::::::::@-*=:::.:::----=%=====+@@++++%@*%************%%#############" << endl;
+	cout << ".................................................-@@:...  ...:::::-::=@:*=--:.::-----*@===+++@@*++*@*#%***********#@%#############";
+
+
+}
+void GameManager::screenProyectTwo() {
+	char* titulo = "Mexico, Luces de esperanza";
+	char* descripcion = "\t\t  Iluminando comunidades rurales sin electricidad con energia solar  \n\t\t\t\t transformando vidas, mediante la implementacion de sistemas solares\n\t\t\t\t         brindando un futuro mas brillante y sostenible.       ";
+
+	colorGame(0, 104, 69); cursorGame(WITDH_GAME / 2 - 3, 1); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(225, 0, 0); cout << char(219) << char(219);
+	colorGame(0, 104, 69); cursorGame(WITDH_GAME / 2 - 3, 2); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(225, 0, 0); cout << char(219) << char(219);
+
+	colorGame(243, 243, 243);
+	cursorGame(WITDH_GAME / 2 - 13, 4); textoLento(titulo);
+	cursorGame(18, 6); textoLento(descripcion);
+
+	cursorGame(0, 9);
+	colorGame(240, 225, 41);
+	cout << "::::::::.............:::::::::::::::::::::::::::::::::::::::::::::::::::#*.-%@@@@@@@%%**%%@@@@%%%%%%%%%%%%%%%%%%####***##*#*##=+:" << endl;
+	cout << "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-%.:%@@@@@@@%%*-%%@@@@@@%%*%###%%%%#%%%%#%#########*####=" << endl;
+	cout << "...........    ....::::::::::::::::::::::..::::::::::::::::::::::::::::::%. *@@@@@@@@@@%#@@@@@%%%%%%%%%%%%%%#%##%%#+-=###########" << endl;
+	cout << "::::::::::::::::::::::::::::::::::::::::::::::::::::......:=+#%@@@@@%:+@@%*.*@@@@@@@@%%@%@%%@@@%%%%%%%#%%%%%%%%%%%%#%#=#####*####" << endl;
+	cout << ":::::::::::::::::::::::::::...............:@@@%@%@#%%@%+#@*@@@@@@@@@@**@#%+-:...--+#%%%##*##*########*%#%%%%#%##%####*#########*#" << endl;
+	cout << ":::::::::................................ %@%%%@%@@@%@#.*@%@@@@@%#%%%#*%%#:.    .:=+**+-.    ... .:--.=++============++++*+*####*" << endl;
+	cout << ":........................................=%%@@@@@@@@%@#:#@@@@@%%*+%*%*:*%*+  +****####*+-:    .....  ...               ... ::::::" << endl;
+	cout << ":.................                .......*@@@@@%@@@@@@#+@@@@%%%%##%+@#.*%%*  %@@@@@@@@@#%%*##%%%%%%#######+#######+-#**+===:. ..." << endl;
+	cout << "::::...........:::::::::::::::::::::::::+@@@%%@@@@@@@@**@@%%%%%%%%%#@%+#@%*. %@@@@@@@@@@@@@=%@@%@@@@@%%@@%%%%%%%%*%%%%#%######*##" << endl;
+	cout << ":::.......::....:::::::::::::..::......:#@@@@@%@@%@%@%-+@@%%%%%%%%%%%@*+%%#=  @@@@@@@@@@@@@@@@@%%@@@@%%%%%%%%%%%%%%%%%###%#######" << endl;
+	cout << ":::::::::::::::::::::::::::::..........+@@@@@@%@@%@%@%:=@@@@@%%%%%%%%%*.#%%+. @@@@@@@@@@@%@@@*@@@@@@@@@%%%@%%%%%%%%%#%*%%%####*##" << endl;
+	cout << "::::::::::::::::::::::................:%@@@@@@@@@@@@@%.=@@%@@@@@@@@@@@*.%@#*: -=*###%%@@@@@@@-=%@@@@@@%%%%%%=%%#%%%%##%%+*#######" << endl;
+	cout << "::::::::..............................=%*#%*@%%@*@@%@@+#@#@@@@@@@@@%%@#+%@%*- .%@@@@@@@@@@#%@%%@@@%@@@@%%%%%#*%%+%%%%%%%#*###*###" << endl;
+	cout << ":::::::::::::::::----:----::::::......@@@%*+-:::::::::-::::..::-====:*+-:*##* .%@@@#@@@@@@@@@@@%%@%%@@@%%%%%%#+%%*%%%%%%###%#%###" << endl;
+	cout << "----------------------::::::::..:---:%@@@@#@@%@%@@@@@:-@@@@%#@@@@@@@*@@= %@%=. -@@@@@@@@@@@@@@@*#@@%%@@%@%%@%%*+%%%%%%%%##%#+####" << endl;
+	cout << ":::::::::::::.:::::.:-+*+*+*-*++*%%@*%%%@*%%%%%*%%#@@:-@@@@%%@@@@@@@%@@+ @@@%. -@@@@%@@@@@@@@@@@@@@@@@@%@@@%@%%*+%%%%%%%%%%%%####" << endl;
+	cout << "::::::::.:==#*+##**-##%%%%%-#@@@#@%*#@@@@%%%#@@@@%%@%#*@%%%##%#%%*#%%%%=-%%@@.  *@@@@@@@@@@@@#@@@*@@@@@@%@%%%%%%#+%%%%%%%%%#*%#=#" << endl;
+	cout << "#@@:@%%%%#*%%%#@%%=@@@*%%@#=@@@@@@%#@@@@%%@@@@*@@@@@:+@@@@@@@@@@@%@@@@@+=%@@@.  =@@@@@@@@@@@@@@@@%-@@@#%%%%%%%%%%%*%%%+%%%%%%###*" << endl;
+	cout << "@=%%%%%#%+@%@%#%%*@%%#@%%%+%#@@%%%**%#%%%%@#@@@@@%@@-.@@*%@@@@@@%#%@@@@@-:%@@@  -#%%%%%%%%%@@@@%@@%=%%@#%%%%%@%%%#-.---==*#%%%%##" << endl;
+	cout << "#%%@%%#+%%%%%%%+**++*#%%%+%@@@@%#*+@@@@@@@@@@%@@%%@@:.@@*%%%%%#%#+*%%%%%..%%@@   :+++****##%%%%#@@#:=%%%%%%%%%%%%%%%%%%##%%%%%%*#" << endl;
+
+
+}
+void GameManager::screenProyectThree() {
+	char* titulo = "Nigeria: Programa de Electrificacion de Nigeria";
+	char* descripcion = "\t\t   Pretende instalar redes cerradas para suministrar electricidad a comunidades aisladas, destinado\n\t\t    especificamente al 43% de los nigerianos que se encuentran fuera del alcance de la red electrica";
+
+	colorGame(68, 122, 57); cursorGame(WITDH_GAME / 2 - 3, 1); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(68, 122, 57); cout << char(219) << char(219);
+	colorGame(68, 122, 57); cursorGame(WITDH_GAME / 2 - 3, 2); cout << char(219) << char(219); colorGame(242, 242, 242); cout << char(219) << char(219); colorGame(68, 122, 57); cout << char(219) << char(219);
+
+	colorGame(243, 243, 243);
+	cursorGame(WITDH_GAME / 2 - 23, 4); textoLento(titulo);
+	cursorGame(1, 6); textoLento(descripcion);
+
+	cursorGame(0, 9);
+
+	colorGame(190, 195, 196);
+	cout << "     ...:::   ..:...                      .:.:.   =.-       .:..          ..          .-+*:..     -..              .:.   " << endl;
+	cout << "      ...:.::.  ..::.                       ::::  =:-         ::.          ..      .-:..=-.:-:---.::              ...    " << endl;
+	cout << "        ...::::::::-+=+:                     .-=:.=:=          -.           :   .:==-+=-=*+====-:-::              ..     " << endl;
+	cout << "          .::-==++=-:  ....                    :=-+-=.:::.      :..         .:  :......:==.      :.:             .:      " << endl;
+	cout << " ...           .+=-:.    .::..               .---=*=+:::-==:     :..         .. :      :-=.      ::.             .       " << endl;
+	cout << ".:::-:.       ..--:..=-.     ..:.          .--::.:==+-..   .   .  :.          ..:      .--.    . -:             ..       " << endl;
+	cout << ". ...:::::-:.. :--=     :. .     ..:.....:--:--=--+-++---==-=-=+--.:.       :.    :    --==     :-     . .:              " << endl;
+	cout << ".:.:..    .:...-=-=..    ..          .-===-::=:::-====.. ..    . :  ...    .  :.  :    -:.-.   .::    .-..               " << endl;
+	cout << "......:.....:..:--=..:::....          .  ..::-   .=:-=:: ..     .:    ::.. ..  ...-.   -. -:   .=.    .-.                " << endl;
+	cout << "           ..:-=+=*::.   ...::.::..   .   .  :...:==-=.  :-..... =      ..:-:    :-:   ---:-   ...    .:                 " << endl;
+	cout << "           ::-:=+==.:=+=-::. ....:::..-......:   .-:=+::.:- ...::-     .   ..     ::   =:-:=   ..:    ..                 " << endl;
+	cout << "       .::::-.:=-++:--+=+==== .:..... :  ....:   .---=.   .  .   ..    .    .     .:.  =. :=   ...    ..                 " << endl;
+	cout << "     :==--==-==*#*#-::-.    ..  .   .. :.     .. :=.:=.    ..     :.        ..     :   =-::-    .:    .              ... " << endl;
+	cout << "     -......   -=++ ..:     ..    .   ....     :.:= .=.     .      :.        :     ..  =:=--    .:    :             ...  " << endl;
+	cout << ".... : .....   ===+   -     ..     ..   ..      :-=..= ..   .      ..        ..     .  +-:-=    ..    .              .   " << endl;
+	cout << ".-:::=:::::-::.+***:::=.:...::      ..    ..     =+=-+. ..          :.        .     .  +-::=.   ..    .             .   ." << endl;
+	cout << "              -+--=: ..        ..... ..     ..  ---..-=..     ..  .    .:.      ..   .-=:  -+   :.   ..    .+.... .      " << endl;
+	cout << "              -::=:-   .         .  ...:.     ..-::. .::..     ..  :    ...     ..    -+. ..=.  ::   .    ..=..      ... " << endl;
+	cout << "              -::--=.    ..        . .....     .--. .:.: .:.    .. ..    ..... ...... =-.   -=. ::   .    .:+=.       .  " << endl;
+	cout << "             .-====- ..   .:..      :. ....    .-=-..:--   ..     :....   ...  ...-.  =+----=+. ::   .    ..-:.      .   " << endl;
+	cout << "             .--:=--    ..  ..:      ...  ...  .---:=:=-.   .      ...:-   ...  ..-.  =-::-::+:.:.   ..    .-:          ." << endl;
+	cout << "             ::-:---.     :..  ..      ..   .:..-=...:=::.   ..     ..:=   .....::=:. =-=. =:=. :.  . :   ..==.       .  ";
+
+
+}
 
 int GameManager::getNivel() { return nivel; }
 void GameManager::setNivel(int nivel) { this->nivel = nivel; }
 
 void GameManager::eraseEntity()
 {
+
+	for (int i = vitamins.size(); i > 0; i--)
+	{
+		vitamins[i - 1]->erase();
+		vitamins.erase(vitamins.end() - 1);
+	}
+
 	for (int i = enemyOne.size(); i > 0; i--)
 	{
+		enemyOne[i - 1]->erase();
 		enemyOne.erase(enemyOne.end() - 1);
 	}
 
 	for (int i = allies.size(); i > 0; i--)
 	{
+		allies[i - 1]->erase();
 		allies.erase(allies.end() - 1);
 	}
 
 	for (int i = flyers.size(); i > 0; i--)
 	{
+		flyers[i - 1]->erase();
 		flyers.erase(flyers.end() - 1);
 	}
 
+	for (int i = artifacts.size(); i > 0; i--)
+	{
+		artifacts[i - 1]->erase();
+		artifacts.erase(artifacts.end() - 1);
+	}
+
+	cantTotalPieces = 0;
+	screenArtifact->setType(0);
+
+	cantFlyers = 5;
 	hero[cantHero]->erase();
+	hero[cantHero]->setCargado(false);
+
 }
 
 
 void GameManager::eraserAll() {
-	
+
 	for (int i = 0; i < enemyOne.size(); i++)
 	{
 		enemyOne[i]->erase();
 	}
 
-	
+
 	for (int i = 0; i < flyers.size(); i++)
 	{
 		flyers[i]->erase();
@@ -285,6 +468,7 @@ void GameManager::eraserAll() {
 	{
 		allies[i]->erase();
 	}
+
 }
 
 void GameManager::positionAll() {
@@ -301,7 +485,7 @@ void GameManager::positionAll() {
 			{
 				flyers[i]->setLives(flyers[i]->getLives() - 1);
 				flyers[i]->erase();
-				blocks[j]->draw();
+				blocks[j]->draw(nivel);
 			}
 		}
 
@@ -341,7 +525,7 @@ void GameManager::positionAll() {
 					enemyOne[i]->setX(enemyOne[i]->getDir() == 'A' ? enemyOne[i]->getX() + 1 : enemyOne[i]->getX() - 1);
 					enemyOne[i]->setDir(r.Next(0, 2) ? 'W' : 'S');
 				}
-				blocks[j]->draw();
+				blocks[j]->draw(nivel);
 			}
 		}
 
@@ -373,7 +557,7 @@ void GameManager::positionAll() {
 					allies[i]->setX(allies[i]->getDir() == 'A' ? allies[i]->getX() + 1 : allies[i]->getX() - 1);
 					allies[i]->setDir(r.Next(0, 2) ? 'W' : 'S');
 				}
-				blocks[j]->draw();
+				blocks[j]->draw(nivel);
 			}
 		}
 		allies[i]->move();
@@ -384,65 +568,6 @@ void GameManager::positionAll() {
 		flyers[i]->move();
 	}*/
 }
-void GameManager::drawArtifact() {
-	int rdmXArtfc1, rdmYArtfc1;
-	cantArt= nivel == 1 ? 3 : nivel == 2 ? 4 : 5;
-	if (timeCountSec == 2 && repeat) {
-
-		for (int i = 0; i < cantArt; i++)
-		{
-			rdmXArtfc1 = rand() % WITDH_GAME_LATERAL;
-			rdmYArtfc1 = rand() % HEIGHT_GAME;
-			if (nivel == 1)
-			{
-				artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 1));
-			}
-			else if (nivel == 2)
-			{
-				artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 4));
-			}
-			else if (nivel == 3)
-			{
-				artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 8));
-			}
-		}
-		for (size_t i = 0; i < artifacts1.size(); i++)
-		{
-			for (int k = 0; k < blocks.size(); k++)
-			{
-				if (collision(artifacts1[i], blocks[k]))
-				{
-					artifacts1.erase(artifacts1.begin() + i);
-					rdmXArtfc1 = rand() % WITDH_GAME_LATERAL;
-					rdmYArtfc1 = rand() % HEIGHT_GAME;
-					if (nivel == 1)
-					{
-						artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 1));
-					}
-					else if (nivel == 2)
-					{
-						artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 3));
-
-					}
-					else if (nivel == 3)
-					{
-						artifacts1.push_back(new Artifact(rdmXArtfc1, rdmYArtfc1, i + 6));
-					}
-					k = -1;
-				}
-			}
-		}
-
-		cursorGame(WITDH_GAME_LATERAL + 1, 17);
-		cout << artifacts1.size();
-		repeat = false;
-	}
-	for (int i = 0; i < artifacts1.size(); i++)
-	{
-		artifacts1[i]->draw();
-	}
-}
-
 void GameManager::drawAll() {
 
 	screenLateral();
@@ -472,60 +597,29 @@ void GameManager::drawAll() {
 			}
 			auxEnemy.push_back(new EnemyOne(rdmX, rdmY, dir));
 
-			for (int k = 0; k < blocks.size(); k++)
+			do
 			{
-				if (collision(auxEnemy[i], blocks[k]) || collision(auxEnemy[i], hero[cantHero]))
+
+				for (int k = 0; k < blocks.size(); k++)
 				{
-					auxEnemy.erase(auxEnemy.begin() + i);
-					rdmX = rand() % WITDH_GAME_LATERAL;
-					rdmY = rand() % HEIGHT_GAME;
-					switch (1 + rand() % 4)
+					if (collision(auxEnemy[i], blocks[k]))
 					{
-					case 1: dir = 'A'; break;
-					case 2: dir = 'D'; break;
-					case 3: dir = 'S'; break;
-					case 4: dir = 'W'; break;
+						auxEnemy.erase(auxEnemy.begin() + i);
+						rdmX = rand() % WITDH_GAME_LATERAL;
+						rdmY = rand() % HEIGHT_GAME;
+						switch (1 + rand() % 4)
+						{
+						case 1: dir = 'A'; break;
+						case 2: dir = 'D'; break;
+						case 3: dir = 'S'; break;
+						case 4: dir = 'W'; break;
+						}
+						auxEnemy.push_back(new EnemyOne(rdmX, rdmY, dir));
+						k = -1;
 					}
-					auxEnemy.push_back(new EnemyOne(rdmX, rdmY, dir));
-					k = -1;
 				}
 
-				/*do
-				{
-					if (k != 0) enemyOne.erase(enemyOne.begin() + i);
-					rdmX = rand() % WITDH_GAME_LATERAL;
-					rdmY = rand() % HEIGHT_GAME;
-					switch (1 + rand() % 4)
-					{
-					case 1: dir = 'A'; break;
-					case 2: dir = 'D'; break;
-					case 3: dir = 'S'; break;
-					case 4: dir = 'W'; break;
-					}
-					enemyOne.push_back(new EnemyOne(rdmX, rdmY, dir));
-
-
-					for (int j = 0; j < enemyOne.size() - 1; j++)
-					{
-
-						if (collision(enemyOne[j], enemyOne[i])) {
-							enemyOne.erase(enemyOne.begin() + i);
-							rdmX = rand() % WITDH_GAME_LATERAL;
-							rdmY = rand() % HEIGHT_GAME;
-							switch (1 + rand() % 4)
-							{
-							case 1: dir = 'A'; break;
-							case 2: dir = 'D'; break;
-							case 3: dir = 'S'; break;
-							case 4: dir = 'W'; break;
-							}
-							enemyOne.push_back(new EnemyOne(rdmX, rdmY, dir));
-							j = -1;
-						}
-					}
-
-				} while (collision(enemyOne[i], blocks[k]));*/
-			}
+			} while (collision(auxEnemy[i], hero[cantHero]));
 			enemyOne.push_back(auxEnemy[i]);
 		}
 
@@ -602,6 +696,100 @@ void GameManager::drawAll() {
 		allies[i]->draw();
 	}
 
+	//VITAMINS
+	cantVitamin = (nivel == 1) ? 1 : 2;
+	if (drawVitamin && timeCountSec % 30 == 0 && timeCountSec != 0 && timeCountSec < totalTime && vitamins.size() < cantVitamin)
+	{
+
+		rdmX = rand() % WITDH_GAME_LATERAL;
+		rdmY = rand() % HEIGHT_GAME;
+		vitamins.push_back(new Vitamin(rdmX, rdmY));
+		for (int k = 0; k < blocks.size(); k++)
+		{
+			if (collision(vitamins[vitamins.size() - 1], blocks[k]) || (rdmX == WITDH_GAME_LATERAL / 2 && rdmY == HEIGHT_GAME / 2))
+			{
+				vitamins.erase(vitamins.begin() + vitamins.size() - 1);
+				rdmX = rand() % WITDH_GAME_LATERAL;
+				rdmY = rand() % HEIGHT_GAME;
+				vitamins.push_back(new Vitamin(rdmX, rdmY));
+				k = -1;
+			}
+		}
+	}
+
+	for (int i = 0; i < vitamins.size(); i++)
+	{
+		if (collision(vitamins[i], hero[cantHero])) {
+			hero[cantHero]->setLives(hero[cantHero]->getLives() + 1);
+			vitamins[i]->erase();
+			vitamins.erase(vitamins.begin() + i);
+			i--;
+		}
+		else vitamins[i]->draw();
+	}
+
+	//ARTIFACTS
+	cantArtif = (nivel == 1) ? 3 : (nivel == 2) ? 4 : 5;
+	if (timeCountSec == 2 && repeatArtif) {
+
+		repeatArtif = false;
+
+		for (int i = 0; i < cantArtif; i++)
+		{
+			rdmX = rand() % WITDH_GAME_LATERAL;
+			rdmY = rand() % HEIGHT_GAME;
+			if (nivel == 1)
+			{
+				artifacts.push_back(new Artifact(rdmX, rdmY, i + 1));
+			}
+			else if (nivel == 2)
+			{
+				artifacts.push_back(new Artifact(rdmX, rdmY, i + 4));
+			}
+			else if (nivel == 3)
+			{
+				artifacts.push_back(new Artifact(rdmX, rdmY, i + 8));
+			}
+
+			for (int k = 0; k < blocks.size(); k++)
+			{
+				if (collision(artifacts[i], blocks[k]) || collision(hero[cantHero], artifacts[i]))
+				{
+					artifacts.erase(artifacts.begin() + i);
+					rdmX = rand() % WITDH_GAME_LATERAL;
+					rdmY = rand() % HEIGHT_GAME;
+					if (nivel == 1)
+					{
+						artifacts.push_back(new Artifact(rdmX, rdmY, i + 1));
+					}
+					else if (nivel == 2)
+					{
+						artifacts.push_back(new Artifact(rdmX, rdmY, i + 4));
+
+					}
+					else if (nivel == 3)
+					{
+						artifacts.push_back(new Artifact(rdmX, rdmY, i + 8));
+					}
+					k = -1;
+				}
+			}
+
+		}
+	}
+
+	for (int i = 0; i < artifacts.size(); i++)
+	{
+		if (collision(artifacts[i], hero[cantHero]))
+		{
+			cantTotalPieces++;
+			pieceType = artifacts[i]->getType();
+			artifacts[i]->erase();
+			artifacts.erase(artifacts.begin() + i);
+			i--;
+		}
+		else artifacts[i]->draw();
+	}
 
 	//FLYERS
 	for (int i = 0; i < flyers.size(); i++)
@@ -680,12 +868,12 @@ bool GameManager::collisionWithBlock(Entity* obj1, Entity* obj2, char dir) {
 }
 
 void GameManager::drawBlocks() {
-	
+
 	for (int i = blocks.size(); i > 0; i--)
 	{
 		blocks.erase(blocks.end() - 1);
 	}
-	
+
 	if (nivel == 1) cantBlock = 15;
 	if (nivel == 2)	cantBlock = 25;
 	if (nivel == 3) cantBlock = 38;
@@ -715,12 +903,12 @@ void GameManager::drawBlocks() {
 		}
 	}
 
-	
+
 	for (int f = 0; f < posyBlock; f++)
 	{
 		for (int c = 0; c < posxBlock; c++)
 		{
-			if (f == 0 || f == posyBlock - 1|| c == 0 || c == posxBlock - 1)
+			if (f == 0 || f == posyBlock - 1 || c == 0 || c == posxBlock - 1)
 			{
 				blocks.push_back(new Block(c * 4, f * 2, 1));
 
@@ -730,7 +918,7 @@ void GameManager::drawBlocks() {
 
 	for (int i = 0; i < blocks.size(); i++)
 	{
-		blocks[i]->draw();	
+		blocks[i]->draw(nivel);
 	}
 }
 
@@ -742,6 +930,7 @@ void GameManager::playLevel() {
 	diferenceTime = beginTime - clock() / 1000;
 	repeatEnemy = true;
 	repeatAlly = true;
+	repeatArtif = true;
 	while (timeCountSec < totalTime && hero[cantHero]->getLives())
 	{
 		flyerBase[0]->draw();
@@ -754,7 +943,7 @@ void GameManager::playLevel() {
 		{
 			char tecla = _getch();
 
-			
+
 			hero[cantHero]->erase();
 
 			if (tecla == char(32))
@@ -784,8 +973,6 @@ void GameManager::playLevel() {
 				hero[cantHero]->move(mover);
 			}
 
-			
-
 		}
 		hero[cantHero]->draw();
 
@@ -793,13 +980,12 @@ void GameManager::playLevel() {
 
 		positionAll();
 		drawAll();
-		drawArtifact();
 
 		_sleep(50);
 	}
 
-	if (enemyOne.size() > 0 || hero[cantHero]->getLives() <= 0) passLevel = false;
 	//if (hero[cantHero]->getLives() <= 0) passLevel = false;
+	if (hero[cantHero]->getLives() <= 0 || cantTotalPieces < cantArtif || enemyOne.size() > 0) passLevel = false;
 
 	eraseEntity();
 	//passLevel = false;
@@ -808,11 +994,14 @@ void GameManager::playLevel() {
 //void GameManager::nivelDos() {}
 //void GameManager::nivelTres() {}
 
-void GameManager::funcionamientoJuego() {
+void GameManager::funcionamientoJuego()
+{
 	//Variables para el jugador
 
 	if (nivel == 1)
 	{
+		screenProyectOne();
+		_sleep(3000);
 		Console::Clear();
 		//Muestra el funcionamiento del GameManager
 
@@ -834,21 +1023,25 @@ void GameManager::funcionamientoJuego() {
 
 	if (nivel == 2)
 	{
-		cursorGame(1, 1); cout << "ENROO";
+		//cursorGame(1, 2); cout << "ENROO";
+		//_sleep(1500);
 		definir_consola_juego();
-		
+
+		Console::Clear();
+		screenProyectTwo();
+		_sleep(3000);
 		Console::Clear();
 		totalTime = 90;
 
 		hero[cantHero]->setX(4);
 		hero[cantHero]->setY(4);
 		drawBlocks();
-		
+
 
 		hero[cantHero]->draw();
 		playLevel();
 
-		
+
 		if (!passLevel) nivel = 0;
 		else
 		{
@@ -862,6 +1055,9 @@ void GameManager::funcionamientoJuego() {
 	if (nivel == 3)
 	{
 
+		Console::Clear();
+		screenProyectThree();
+		_sleep(3000);
 		Console::Clear();
 		totalTime = 120;
 
@@ -898,6 +1094,7 @@ void GameManager::funcionamientoJuego() {
 
 	if (nivel == 0)
 	{
+		system("cls");
 		definir_consola_inicio();
 		screenLoser();
 		//screenYouPass();

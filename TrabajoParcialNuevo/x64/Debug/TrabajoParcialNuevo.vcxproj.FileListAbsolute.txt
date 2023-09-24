@@ -3,3 +3,5 @@ D:\TrabajoParcialNuevo\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj
 D:\TrabajoParcialNuevo\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.SuggestedBindingRedirects.cache
 D:\Jorge\tp\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.AssemblyReference.cache
 D:\Jorge\tp\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.SuggestedBindingRedirects.cache
+C:\disco D\software\Algoritmos\videojuego_POO\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.AssemblyReference.cache
+C:\disco D\software\Algoritmos\videojuego_POO\TrabajoParcialNuevo\x64\Debug\TrabajoParcialNuevo.vcxproj.SuggestedBindingRedirects.cache

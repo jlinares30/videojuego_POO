@@ -27,13 +27,33 @@ Block::~Block() {
 
 }
 
-void Block::draw() {
+void Block::draw(int nivel) {
 	for (int f = 0; f < height; f++)
 	{
 		for (int c = 0; c < witdh; c++) {
 			cursorEntity(x + c, y + f);
-			if (figure[f][c] == 1)colorEntity(224, 180, 26);
-			if (figure[f][c] == 2)colorEntity(186, 147, 10);
+			if (figure[f][c] == 1)
+			{
+				switch (nivel)
+				{
+				case 1: colorEntity(224, 180, 26); break;
+				case 2: colorEntity(91, 209, 12); break;
+				case 3: colorEntity(111, 121, 154); break;
+				}
+
+			}
+
+			if (figure[f][c] == 2)
+			{
+				switch (nivel)
+				{
+				case 1: colorEntity(186, 147, 10); break;
+				case 2: colorEntity(64, 144, 11); break;
+				case 3: colorEntity(76, 83, 107); break;
+				}
+
+			}
+
 			cout << char(219);
 		}
 	}

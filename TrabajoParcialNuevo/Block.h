@@ -4,12 +4,7 @@
 class Block : public Entity
 {
 private:
-	/*
-	int figure[2][4] =
-	{
-		{1, 1, 2, 2},
-		{1, 2, 2, 2},
-	};*/
+
 
 public:
 	Block();
@@ -22,6 +17,6 @@ public:
 		{1, 2, 2, 2},
 	};
 
-	void draw();
+	void draw(int nivel);
 };
 

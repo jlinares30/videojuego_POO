@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+
 class Artifact : public Entity
 {
 private:
@@ -10,7 +11,7 @@ private:
 		{' ','|',' '},
 	};
 	char figure1B[3][3] = {
-		{' ','-',' '},
+		{' ','_',' '},
 		{'/','o','\\'},
 		{'|',' ','|'},
 	};
@@ -64,10 +65,11 @@ private:
 		{'|',' ','|'},
 		{'\\','_','/'},
 	};
+
 public:
+	Artifact();
 	Artifact(float x, float y, int type);
 	~Artifact();
 
-	void draw() override;
+	void draw();
 };
-
